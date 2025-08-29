@@ -1,0 +1,2836 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    div {
+      display: inline-flex;
+    }
+
+    .loc {
+      background-color: rgb(30, 30, 43);
+      width: 100%;
+    }
+    #firstn:hover,
+    .a1:hover {
+      border-style: solid;
+      border-color: white;
+      border-width: 1px;
+    }
+    .shop:hover {
+      color: darkorchid;
+    }
+
+    .a1 {
+      color: white;
+      font-style: normal;
+      font-size: 15px;
+      display: inline;
+      font-weight: bold;
+      text-decoration: none;
+      margin-left: 18px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    h1 {
+      font-weight: bold;
+      font-style: normal;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: x-large;
+      text-align: center;
+      margin-top: 5%;
+    }
+    .contanier {
+      width: 335px;
+      height: 420px;
+      background-color: rgb(255, 255, 255);
+      margin-right: 30px;
+
+      margin-top: 15%;
+      display: block;
+      border-width: 2px;
+      border-color: rgba(0, 0, 0, 0.253);
+      border-style: solid;
+    }
+    .contanier2 {
+      width: 335px;
+      height: 420px;
+      background-color: rgb(255, 255, 255);
+      margin-right: 30px;
+      margin-top: 1.5%;
+      display: block;
+      border-width: 2px;
+      border-color: rgba(0, 0, 0, 0.219);
+      border-style: solid;
+    }
+
+    .contanier3 {
+      width: 100%;
+      height: 300px;
+      background-color: rgb(255, 255, 255);
+      margin-right: 30px;
+      margin-top: 1.5%;
+      display: block;
+      border-width: 2px;
+      border-color: rgba(0, 0, 0, 0.349);
+      border-style: solid;
+    }
+    #back1 {
+      color: white;
+      font-size: 20px;
+      padding-left: 46%;
+      padding-top: 8px;
+
+      height: 50px;
+      max-width: 100%;
+
+      background-color: #39538875;
+      display: flex;
+    }
+    #back1:hover {
+      background-color: #4d628b75;
+    }
+
+    .sp {
+      color: white;
+      font-style: normal;
+      font-size: 15px;
+      font-weight: bold;
+      margin-left: 18px;
+      font-family: Arial, Helvetica, sans-serif;
+      text-decoration: none;
+    }
+
+    .back2:hover {
+      text-decoration: white underline;
+    }
+
+    pre {
+      font-family: Arial, Helvetica, sans-serif;
+      color: white;
+    }
+    .slider-container {
+      position: relative;
+      width: 67%;
+      height: 185px;
+    }
+
+    .slider {
+      height: 204px;
+      overflow-x: auto;
+      white-space: nowrap;
+      scroll-behavior: smooth;
+      margin-top: 60px;
+    }
+
+    .slider img {
+      width: 250px;
+      height: 200px;
+      margin-right: 10px;
+      display: inline-block;
+    }
+
+    .buttons {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .buttons button {
+      margin-right: 50px;
+      margin-top: 25px;
+      pointer-events: all;
+      padding: 10px;
+      font-size: 55px;
+      cursor: pointer;
+      background-color: rgba(209, 205, 205, 0.582);
+      border-width: 1px;
+      border-radius: 3px;
+      width: 55px;
+      height: 80px;
+    }
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .menu-container {
+      background-color: #232f3e;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      width: 100%;
+    }
+
+    .menu-container a {
+      color: white;
+      padding: 10px 15px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .side-menu {
+      display: block;
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: -250px;
+      background-color: #ffffff;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+      color: rgb(0, 0, 0);
+    }
+
+    .side-menu a,
+    .side-menu h3 {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .side-menu h3 {
+      font-size: 20px;
+      color: #000000;
+    }
+
+    .side-menu a:hover,
+    .side-menu h3:hover {
+      color: #f1f1f1;
+    }
+
+    .side-menu .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 36px;
+    }
+
+    #firstn {
+      position: relative;
+      display: inline-block;
+    }
+
+    #firstn a {
+      text-decoration: none;
+    }
+
+    #firstn pre {
+      color: white;
+      font-style: normal;
+      font-size: 15px;
+      margin-top: 25%;
+      font-weight: bold;
+      margin-left: 5%;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .hover-menu {
+      padding-right: 30px;
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #ffffff;
+      color: #000000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+      width: 300px;
+      padding: 20px;
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+    }
+
+    .hover-menu h3 {
+      font-size: 16px;
+      color: #161d25;
+      margin: 10px 0;
+    }
+
+    .hover-menu a {
+      padding: 8px 0;
+      text-decoration: none;
+      font-size: 12px;
+      color: rgb(48, 47, 47);
+      display: block;
+      transition: 0.3s;
+    }
+
+    .hover-menu a:hover {
+      color: #ffb11f;
+    }
+
+    .hover-menu .column {
+      float: left;
+      width: 50%;
+      box-sizing: border-box;
+      padding: 0 10px;
+    }
+
+    .hover-menu .column:first-child {
+      border-right: 1px solid #ddd;
+    }
+
+    #firstn:hover .hover-menu {
+      display: block;
+    }
+
+    .background-slider {
+      position: relative;
+      width: 100%;
+      margin-bottom: 44px;
+      background-color: rgba(163, 161, 161, 0.74);
+      text-align: center;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 1s ease-in-out;
+    }
+
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.493);
+      color: rgb(0, 0, 0);
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .nav-button.left {
+      left: 10px;
+    }
+
+    .nav-button.right {
+      right: 10px;
+    }
+  </style>
+
+  <body>
+    <div class="loc" id="d">
+      <nav id="firstn" style="display: inline-flex">
+        <a href="https://www.amazon.com/ref=nav_logo">
+          <img
+            src="images\logo.png"
+            alt=""
+            style="width: 150px; height: 90px"
+            id="im1"
+          />
+        </a>
+      </nav>
+      <div class="a1" style="padding-top: 20px">
+        <a
+          href="https://www.amazon.com/"
+          style="text-align: center; text-decoration: none"
+          ><span
+            style="
+              color: mintcream;
+              font-size: 15px;
+              font-style: bold;
+              font-family: Arial, Helvetica, sans-serif;
+            "
+            >Dieliver to <br />
+            <i
+              class="fa-solid fa-location-dot"
+              style="color: rgb(255, 251, 251)"
+            ></i>
+            <strong>Egypt</strong>
+          </span></a
+        >
+      </div>
+
+      <div>
+        <select
+          name="All"
+          id=""
+          style="
+            width: 60px;
+            height: 54%;
+            margin-top: 20px;
+            color: rgb(0, 0, 0);
+            background-color: rgb(142, 153, 158);
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+            margin-left: 10px;
+          "
+        >
+          <option value="All">All</option>
+          <option value=""></option>
+        </select>
+
+        <input
+          type="text"
+          value="Search amazon "
+          style="width: 800px; height: 50%; margin-top: 20px"
+        />
+        <i
+          class="fa-solid fa-magnifying-glass"
+          style="
+            font-size: x-large;
+            text-align: center;
+            background-color: rgb(245, 185, 35);
+            height: 36%;
+            margin-top: 21px;
+            width: 60px;
+            padding-top: 15px;
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 5px;
+          "
+        ></i>
+      </div>
+
+      <div>
+        <div id="firstn">
+          <a>
+            <select
+              name="lang"
+              id="lang"
+              style="margin-top: 80%; margin-left: 10px"
+            >
+              <option value="Egypt">EN</option>
+              <option value="Amirca">AR</option>
+              <option value="kanada"></option>
+            </select>
+          </a>
+        </div>
+
+        <div id="firstn">
+          <a href="javascript:void(0)">
+            <pre>
+      Hello, sign in
+      Account & Lists  
+            </pre>
+          </a>
+          <div class="hover-menu">
+            <button
+              class="sign-in-btn"
+              style="
+                margin-left: 30%;
+                background-color: rgb(255, 190, 25);
+                border-width: 0px;
+                width: 170px;
+                height: 30px;
+                border-radius: 10px;
+                cursor: pointer;
+              "
+            >
+              <a href="sign in page.html" target="_blank" style="color: black"
+                >Sign in</a
+              >
+            </button>
+            <br />
+            <div class="column" style="display: block">
+              <h3>Your Lists</h3>
+              <a href="#">Create a List</a>
+              <a href="#">Find a List or Rigestry</a>
+            </div>
+            <h3>Find a List or Registry</h3>
+            <div class="column" style="display: block">
+              <a href="#">Your Account</a>
+              <a href="#">Account</a>
+              <a href="#">Orders</a>
+              <a href="#">Recommendations</a>
+              <a href="#">Browsing History</a>
+              <a href="#">Watchlist</a>
+              <a href="#">Video Purchases & Rentals</a>
+              <a href="#">Kindle Unlimited</a>
+              <a href="#">Content & Devices</a>
+              <a href="#">Subscribe & Save Items</a>
+              <a href="#">Memberships & Subscriptions</a>
+              <a href="#">Music Library</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="firstn">
+          <a
+            href=""
+            style="
+              color: white;
+              font-style: normal;
+              font-size: 15px;
+              margin-top: 45%;
+              font-weight: bold;
+              margin-left: 15px;
+              text-decoration: none;
+              font-family: Arial, Helvetica, sans-serif;
+            "
+          >
+            <pre>
+Returns&
+<strong>Orders</strong>
+</pre
+            >
+          </a>
+        </div>
+
+        <div id="firstn">
+          <a href="">
+            <i
+              class="fa-solid fa-cart-shopping"
+              style="
+                color: white;
+                font-size: x-large;
+                margin-left: 20px;
+                margin-top: 50%;
+              "
+            >
+              <pre
+                style="
+                  color: white;
+                  font-style: normal;
+                  font-size: 15px;
+                  display: inline;
+                  font-weight: bold;
+                "
+              >
+cart</pre
+              >
+            </i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="menu-container">
+      <a href="javascript:void(0)" class="a1" id="menu-toggle"
+        ><i class="fa-solid fa-bars"></i> All</a
+      >
+      <a href="" class="a1">Today's Deals</a>
+      <a href="" class="a1">Customer Service</a>
+      <a href="" class="a1">Registry</a>
+      <a href="" class="a1">Gift Cards</a>
+      <a href="" class="a1">Sell</a>
+    </div>
+
+    <div class="background-slider" id="backgroundSlider">
+      <button class="nav-button left" onclick="prevImage()">&#10094;</button>
+      <button class="nav-button right" onclick="nextImage()">&#10095;</button>
+
+      <!-- section 1 -->
+      <div
+        class="contanier"
+        style="margin-left: 30px; position: relative; z-index: 1"
+      >
+        <h1>Gaming accessories</h1>
+        <div style="margin-top: 5%">
+          <figcaption style="display: block;">  <img
+          
+            src="images/d1.jpg"
+            alt=""
+            style="width: 100%; height: 115.5px"
+          /> <br> hedset</figcaption>
+        <br />
+        <figcaption> 
+          <img
+          src="images/d3.jpg"
+          alt=""
+          style="width: 100%; height: 115.5px; max-width: 420px"
+        /> <br> computer mice</figcaption>
+         <br />
+        </div>
+        <div style="margin-top: 15%">
+          <figcaption>
+            <img src="images/d2.jpg" alt="" style="width: 100%; height: 115.5px" /><br>
+            Keyboard
+          </figcaption>
+          <figcaption>
+            <img src="images/d4.jpg" alt="" style="width: 100%; height: 115.5px" />
+            <br> chiars
+          </figcaption>
+          
+        </div>
+        <a
+          class="shop"
+          href="#"
+          style="
+            color: rgb(36, 121, 121);
+            text-decoration: none;
+            margin-left: 8%;
+          "
+          >See more</a
+        >
+
+        <div id="side-menu" class="side-menu">
+          <a
+            href="sign in page.html"
+            target="_blank"
+            style="
+              color: rgb(255, 255, 255);
+              background-color: #232f3e;
+              width: 100%;
+              top: 0;
+              font-style: normal;
+            "
+            >Hello,Sign in</a
+          >
+
+          <a href="javascript:void(0)" class="close-btn" id="menu-close"
+            >&times;</a
+          >
+
+          <br />
+          <h3>Digital Content & Devices</h3>
+          <a href="#">Amazon Music</a>
+          <a href="#">Kindle E-readers & Books</a>
+          <a href="#">Amazon Appstore</a>
+
+          <h3>Shop by Department</h3>
+          <a href="#">Electronics</a>
+          <a href="#">Computers</a>
+          <a href="#">Smart Home</a>
+          <a href="#">Arts & Crafts</a>
+          <a href="#">Automotive</a>
+          <a href="#">Baby</a>
+          <a href="#">Beauty and Personal Care</a>
+          <a href="#">Women's Fashion</a>
+          <a href="#">Men's Fashion</a>
+          <a href="#">Girls' Fashion</a>
+          <a href="#">Boys' Fashion</a>
+          <a href="#">Health and Household</a>
+          <a href="#">Home and Kitchen</a>
+          <a href="#">Industrial and Scientific</a>
+          <a href="#">Luggage</a>
+          <a href="#">Movies & Television</a>
+          <a href="#">Pet supplies</a>
+          <a href="#">Software</a>
+          <a href="#">Sports and Outdoors</a>
+          <a href="#">Tools & Home Improvement</a>
+          <a href="#">Toys and Games</a>
+          <a href="#">Video Games</a>
+          <a href="#">See less</a>
+
+          <h3>Programs & Features</h3>
+          <a href="#">Gift Cards</a>
+          <a href="#">Shop By Interest</a>
+          <a href="#">Amazon Live</a>
+          <a href="#">International Shopping</a>
+          <a href="#">Amazon Second Chance</a>
+          <a href="#">See less</a>
+
+          <h3>Help & Settings</h3>
+          <a href="#">Your Account</a>
+          <a href="#">English</a>
+          <a href="#">United States</a>
+          <a href="#">Customer Service</a>
+          <a href="#">Sign in</a>
+        </div>
+      </div>
+      <div class="contanier">
+        <h1>Refresh your space</h1>
+        <div style="margin-top: 5%">
+          <figure>
+            <img
+            src="images/r1.jpg"
+            alt=""
+            style="width: 95%; height: 115.5px; margin-left: 4%"
+          />
+            <br>Dining
+            
+          </figure>
+         <br />
+         <figcaption>
+          <img
+          src="images/r2.jpg"
+          alt=""
+          style="
+            width: 85%;
+            height: 115.5px;
+            max-width: 420px;
+            margin-left: 4%;
+          "
+        />
+          <br>
+        
+       
+          Home
+          
+         </figcaption>
+          <br />
+        </div>
+        <div style="margin-top: 15%">
+          <figcaption>
+            <img
+            src="images/r3.jpg"
+            alt=""
+            style="width: 95%; height: 115.5px; margin-left: 4%"
+          />
+            <br> 
+            Kitchen
+            
+            
+          </figcaption>
+         <figcaption>
+          <img
+          src="images/r4.jpg"
+          alt=""
+          style="width: 85%; height: 115.5px; margin-left: 4%"
+        />
+           <br>
+           
+Health and Beauty
+         </figcaption>
+          
+        </div>
+        <a
+          class="shop"
+          href="#"
+          style="
+            color: rgb(36, 121, 121);
+            text-decoration: none;
+            margin-left: 8%;
+          "
+          >See more</a
+        >
+      </div>
+      <div class="contanier">
+        <h1>Shop deals in Fashion</h1>
+        <div style="margin-top: 5%">
+          <figcaption>
+            <img
+            src="images/s1.jpg"
+            alt=""
+            style="width: 90%; height: 115.5px; margin-left: 4%"
+          /> <br>
+          Jeans under $50
+
+          </figcaption>
+         <br />
+         <figcaption>
+          <img
+          src="images/s2.jpg"
+          alt=""
+          style="
+            width: 85%;
+            height: 115.5px;
+            max-width: 420px;
+            margin-left: 4%;
+          "
+        />
+          <br>Tops under $25
+
+         </figcaption>
+          <br />
+        </div>
+        <div style="margin-top: 15%">
+          <figcaption>
+            <img
+            src="images/s3.jpg"
+            alt=""
+            style="width: 90%; height: 115.5px; margin-left: 4%"
+          />
+            <br>Dresses under $30
+          </figcaption>
+          <figcaption>
+            <img
+            src="images/s4.jpg"
+            alt=""
+            style="width: 85%; height: 115.5px; margin-left: 4%"
+          />
+            <br>
+            Shoes under $50
+          </figcaption>
+          
+        </div>
+        <a
+          class="shop"
+          href="#"
+          style="
+            color: rgb(36, 121, 121);
+            text-decoration: none;
+            margin-left: 8%;
+            margin-top: 10%;
+          "
+          >See all deals</a
+        >
+      </div>
+      <div class="contanier">
+        <h1>Deals in PCs</h1>
+        <img
+          src="images/pc.jpg"
+          alt=""
+          style="width: 90%; height: 75%; margin-left: 5%; margin-top: 4%"
+        /><br />
+        <a
+          class="shop"
+          href="#"
+          style="
+            color: rgb(36, 121, 121);
+            text-decoration: none;
+            margin-left: 8%;
+          "
+          >Shop now</a
+        >
+      </div>
+    </div>
+
+    <!-- section 2 -->
+    <div
+      style="
+        width: 100%;
+        margin-bottom: 15px;
+        background-color: rgba(172, 168, 168, 0.329);
+      "
+    >
+      <div class="contanier2" style="margin-left: 30px">
+        <h1>Amazon Gadget Store</h1>
+        <div style="margin-top: 5%; display: block">
+          <img
+            src="images\a1.jpg"
+            alt=""
+            style="width: 90%; height: 150px; margin-left: 5%"
+          />
+        </div>
+
+        <figcaption></figcaption>
+
+        <div style="margin-top: 15%; margin-left: 5%">
+          <br />
+          <img
+            src="images\a3.jpg"
+            alt=""
+            style="
+              width: 31%;
+              height: 118px;
+              max-width: 420px;
+              margin-right: 2%;
+            "
+          />
+          <br />
+          <img src="images\a2.jpg" alt="" style="width: 31%; height: 118px" />
+          <img
+            src="images\a4.jpg"
+            alt=""
+            style="width: 32%; height: 118px; margin-left: 1%"
+          />
+        </div>
+
+        <a
+          class="shop"
+          href=""
+          style="
+            color: rgb(36, 121, 121);
+            text-decoration: none;
+            margin-left: 8%;
+          "
+          >See more</a
+        >
+      </div>
+      <div class="contanier2">
+        <h1>Toys under $25</h1>
+
+        <img
+          src="images\t.jpg"
+          alt=""
+          style="width: 90%; height: 75%; margin-left: 5%; margin-top: 4%"
+        />
+        <br />
+        <a
+          class="shop"
+          href=""
+          style="
+            color: rgb(36, 121, 121);
+            text-decoration: none;
+            margin-left: 8%;
+          "
+          >Shop now</a
+        >
+      </div>
+
+      <div class="contanier2">
+        <h1>Fashion trends you like</h1>
+        <div style="margin-top: 5%">
+          <figcaption style="margin-left: 4px;">
+            <img
+            src="images\f1.jpg"
+            alt=""
+            style="width: 90%; height: 115.5px; margin-left: 4%"
+          />
+            <br>Dresses
+          </figcaption>
+          <br />
+          <figcaption style="margin-left: 4px;">
+            <img
+            src="images\f2.jpg"
+            alt=""
+            style="
+              width: 85%;
+              height: 115.5px;
+              max-width: 420px;
+              margin-left: 4%;
+            "
+          />
+            <br>
+            Knits
+          </figcaption style="margin-left: 4px;">
+          
+          <br />
+        </div>
+
+        <div style="margin-top: 15%">
+          <figcaption>
+            <img
+            src="images\f3.jpg"
+            alt=""
+            style="width: 90%; height: 115.5px; margin-left: 4%"
+          />
+            <br>Jackets
+          </figcaption>
+          <figcaption style="margin-left: 4px;">
+            <img
+            src="images\f4.jpg"
+            alt=""
+            style="width: 85%; height: 115.5px; margin-left: 4%"
+          />
+            <br>
+            Jewelry
+          </figcaption>
+         
+        </div>
+        <a
+          class="shop"
+          href=""
+          style="
+            color: rgb(36, 121, 121);
+            text-decoration: none;
+            margin-left: 8%;
+            margin-top: 10%;
+          "
+          >See all deals</a
+        >
+      </div>
+      <div class="contanier2">
+        <h1>Beauty steals under $25</h1>
+
+        <img
+          src="images\B.jpg"
+          alt=""
+          style="width: 90%; height: 75%; margin-left: 5%; margin-top: 4%"
+        />
+        <br />
+        <a
+          class="shop"
+          href=""
+          style="
+            color: rgb(36, 121, 121);
+            text-decoration: none;
+            margin-left: 8%;
+          "
+          >Shop now</a
+        >
+      </div>
+    </div>
+    <!-- Section 3 -->
+    <div
+      style="
+        width: 100%;
+        margin: 0;
+        background-color: rgba(204, 192, 192, 0.329);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+        border-width: 2;
+        border-color: black;
+      "
+    >
+      <div
+        class="slider-container"
+        style="
+          position: relative;
+          width: 100%;
+          height: 290px;
+          padding: 20px;
+          padding-left: 30px;
+          box-sizing: border-box;
+        "
+      >
+        <div
+          class="slider"
+          style="
+            overflow-x: auto;
+            margin-bottom: 12px;
+            height: calc(95% - 20px);
+            margin-top: 50px;
+            background-color: white;
+          "
+        >
+          <h2
+            style="
+              padding-left: 10px;
+              font-size: 20px;
+              color: rgb(12, 11, 11);
+              position: absolute;
+              top: 20px;
+              left: 20px;
+              z-index: 10;
+              font-family: Arial, Helvetica, sans-serif;
+            "
+          >
+            Best Sellers in Cell Phones & Accessories
+          </h2>
+          <img src="images/slid1.jpg" alt="" class="sl" />
+          <img src="images/slid2.jpg" alt="" class="sl" />
+          <img src="images/slid3.jpg" alt="" class="sl" />
+          <img src="images/slid4.jpg" alt="" class="sl" />
+          <img src="images/slid5.jpg" alt="" class="sl" />
+          <img src="images/slid6.jpg" alt="" class="sl" />
+          <img src="images/slid77.jpg" alt="" class="sl" />
+          <img src="images/slid8.jpg" alt="" class="sl" />
+          <img src="images/slid10.jpg" alt="" class="sl" />
+          <img src="images/slid11.jpg" alt="" class="sl" />
+          <img src="images/slid12.jpg" alt="" class="sl" />
+        </div>
+        <div class="buttons">
+          <button class="prevButton">
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+          <button class="nextButton">
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div
+      style="
+        width: 100%;
+        margin: 0;
+        background-color: rgba(204, 192, 192, 0.329);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+        border-width: 2;
+        border-color: black;
+      "
+    >
+      <div
+        class="slider-container"
+        style="
+          position: relative;
+          width: 100%;
+          height: 290px;
+          padding: 20px;
+          padding-left: 30px;
+          box-sizing: border-box;
+        "
+      >
+        <div
+          class="slider"
+          style="
+            overflow-x: auto;
+            margin-bottom: 12px;
+            height: calc(95% - 20px);
+            margin-top: 50px;
+            background-color: white;
+          "
+        >
+          <h2
+            style="
+              padding-left: 10px;
+              font-size: 20px;
+              color: rgb(12, 11, 11);
+              position: absolute;
+              top: 20px;
+              left: 20px;
+              z-index: 10;
+              font-family: Arial, Helvetica, sans-serif;
+            "
+          >
+            Best Sellers in Toys & Games
+          </h2>
+          <img src="images/cr1.jpg" alt="" class="sl" />
+          <img src="images/cr2.jpg" alt="" class="sl" />
+          <img src="images/cr3.jpg" alt="" class="sl" />
+          <img src="images/cr4.jpg" alt="" class="sl" />
+          <img src="images/cr5.jpg" alt="" class="sl" />
+          <img src="images/cr6.jpg" alt="" class="sl" />
+          <img src="images/cr7.jpg" alt="" class="sl" />
+          <img src="images/cr8.jpg" alt="" class="sl" />
+          <img src="images/cr9.jpg" alt="" class="sl" />
+          <img src="images/cr10.jpg" alt="" class="sl" />
+          <img src="images/cr11.jpg" alt="" class="sl" />
+          <img src="images/cr12.jpg" alt="" class="sl" />
+          <img src="images/cr13.jpg" alt="" class="sl" />
+          <img src="images/cr14.jpg" alt="" class="sl" />
+          <img src="images/cr15.jpg" alt="" class="sl" />
+        </div>
+        <div class="buttons">
+          <button class="prevButton">
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+          <button class="nextButton">
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- section 5 -->
+
+    <div
+      style="
+        width: 100%;
+
+        background-color: rgba(163, 161, 161, 0.404);
+        text-align: center;
+      "
+    >
+      <div class="contanier2" style="margin-left: 30px">
+        <h1>Shop activity trackers and smartwatches</h1>
+
+        <img
+          src="images\s.jpg"
+          alt=""
+          style="width: 90%; height: 75%; margin-left: 1%; margin-top: 2%"
+        />
+        <br />
+        <a
+          class="shop"
+          href=""
+          style="
+            color: rgb(36, 121, 121);
+            text-decoration: none;
+            margin-left: 8%;
+          "
+          >Shop now</a
+        >
+      </div>
+      <div class="contanier2">
+        <h1>Gaming merchandise</h1>
+        <div style="margin-top: 5%">
+          <figcaption>
+            <img
+            src="images\g1.jpg"
+            alt=""
+            style="width: 90%; height: 115.5px; margin-left: 4%; margin-top: 4%"
+          />
+            <br>
+            Apparel
+          </figcaption>
+          <br />
+          <figcaption>
+            <img
+            src="images\g2.jpg"
+            alt=""
+            style="
+              width: 85%;
+              height: 115.5px;
+              max-width: 420px;
+              margin-left: 4%;
+            "
+          />
+            <br>
+
+            Hats
+          </figcaption>
+          
+          <br />
+        </div>
+
+        <div style="margin-top: 15%">
+          <figcaption>
+            <img
+            src="images\g3.jpg"
+            alt=""
+            style="width: 90%; height: 115.5px; margin-left: 4%"
+          />
+            <br>
+            Action figures
+          </figcaption>
+          <figcaption>
+            <img
+            src="images\g4.jpg"
+            alt=""
+            style="width: 85%; height: 115.5px; margin-left: 4%"
+          />
+            <br>
+
+         Mugs
+          </figcaption>
+          
+        </div>
+        <a
+          class="shop"
+          href=""
+          style="
+            color: rgb(36, 121, 121);
+            text-decoration: none;
+            margin-left: 8%;
+          "
+          >See more</a
+        >
+      </div>
+
+      <div class="contanier2">
+        <h1>Warm & welcoming decor</h1>
+        <div style="margin-top: 5%">
+          <figcaption>
+            <img
+            src="images\w1.jpg"
+            alt=""
+            style="width: 90%; height: 115.5px; margin-left: 4%"
+          />
+            <br>
+            Wreaths & garlands
+          </figcaption>
+          <br />
+          <figcaption>
+            <img
+            src="images\w2.jpg"
+            alt=""
+            style="
+              width: 85%;
+              height: 115.5px;
+              max-width: 420px;
+              margin-left: 4%;
+            "
+          />
+            <br>
+ 
+         Outdoor decor
+          </figcaption>
+          
+          <br />
+        </div>
+
+        <div style="margin-top: 15%">
+          <figcaption>
+            <img
+            src="images\w3.jpg"
+            alt=""
+            style="width: 90%; height: 115.5px; margin-left: 4%"
+          />
+            <br>
+            Pillows & throws
+          </figcaption>
+          <figcaption>
+            <img
+            src="images\w4.jpg"
+            alt=""
+            style="width: 85%; height: 115.5px; margin-left: 4%"
+          />
+            <br>
+        
+      Wall art & mirrors
+          </figcaption>
+          
+        </div>
+        <a
+          class="shop"
+          href=""
+          style="
+            color: rgb(36, 121, 121);
+            text-decoration: none;
+            margin-left: 8%;
+            margin-top: 10%;
+          "
+          >Shop more fall finds</a
+        >
+      </div>
+      <div class="contanier2">
+        <h1>Deals on shoes</h1>
+
+        <img
+          src="images\shoes.jpg"
+          alt=""
+          style="width: 90%; height: 75%; margin-left: 1%; margin-top: 5%"
+        />
+        <br />
+        <a
+          class="shop"
+          href=""
+          style="
+            color: rgb(36, 121, 121);
+            text-decoration: none;
+            margin-left: 8%;
+          "
+          >see more
+        </a>
+      </div>
+    </div>
+    <!-- section 6 -->
+
+    <div
+      style="
+        width: 100%;
+        margin: 0;
+        background-color: rgba(204, 192, 192, 0.329);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+        border-width: 2;
+        border-color: black;
+      "
+    >
+      <div
+        class="slider-container"
+        style="
+          position: relative;
+          width: 100%;
+          height: 290px;
+          padding: 20px;
+          padding-left: 30px;
+          box-sizing: border-box;
+        "
+      >
+        <div
+          class="slider"
+          style="
+            overflow-x: auto;
+            margin-bottom: 12px;
+            height: calc(95% - 20px);
+            margin-top: 50px;
+            background-color: white;
+          "
+        >
+          <h2
+            style="
+              padding-left: 10px;
+              font-size: 20px;
+              color: rgb(12, 11, 11);
+              position: absolute;
+              top: 20px;
+              left: 20px;
+              z-index: 10;
+              font-family: Arial, Helvetica, sans-serif;
+            "
+          >
+            Best Sellers in Computers & Accessories
+          </h2>
+          <img src="images/sec1.jpg" alt="" class="sl" />
+          <img src="images/sec2.jpg" alt="" class="sl" />
+          <img src="images/sec3.jpg" alt="" class="sl" />
+          <img src="images/sec4.jpg" alt="" class="sl" />
+          <img src="images/sec5.jpg" alt="" class="sl" />
+          <img src="images/sec6.jpg" alt="" class="sl" />
+          <img src="images/sec7.jpg" alt="" class="sl" />
+          <img src="images/sec8.jpg" alt="" class="sl" />
+          <img src="images/sec9.jpg" alt="" class="sl" />
+          <img src="images/sec10.jpg" alt="" class="sl" />
+          <img src="images/sec11.jpg" alt="" class="sl" />
+          <img src="images/sec12.jpg" alt="" class="sl" />
+          <img src="images/sec13.jpg" alt="" class="sl" />
+          <img src="images/sec14.jpg" alt="" class="sl" />
+          <img src="images/sec15.jpg" alt="" class="sl" />
+        </div>
+        <div class="buttons">
+          <button class="prevButton">
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+          <button class="nextButton">
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- section 7 -->
+    <div
+      style="
+        width: 100%;
+        margin: 0;
+        background-color: rgba(204, 192, 192, 0.329);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+        border-width: 2;
+        border-color: black;
+      "
+    >
+      <div
+        class="slider-container"
+        style="
+          position: relative;
+          width: 100%;
+          height: 290px;
+          padding: 20px;
+          padding-left: 30px;
+          box-sizing: border-box;
+        "
+      >
+        <div
+          class="slider"
+          style="
+            overflow-x: auto;
+            margin-bottom: 12px;
+            height: calc(95% - 20px);
+            margin-top: 50px;
+            background-color: white;
+          "
+        >
+          <h2
+            style="
+              padding-left: 10px;
+              font-size: 20px;
+              color: rgb(12, 11, 11);
+              position: absolute;
+              top: 20px;
+              left: 20px;
+              z-index: 10;
+              font-family: Arial, Helvetica, sans-serif;
+            "
+          >
+            Best Sellers in Kitchen & Dining
+          </h2>
+          <img src="images/clean1.jpg" alt="" class="sl" />
+          <img src="images/clean2.jpg" alt="" class="sl" />
+          <img src="images/clean3.jpg" alt="" class="sl" />
+          <img src="images/clean4.jpg" alt="" class="sl" />
+          <img src="images/clean5.jpg" alt="" class="sl" />
+          <img src="images/clean6.jpg" alt="" class="sl" />
+          <img src="images/clean7.jpg" alt="" class="sl" />
+          <img src="images/clean8.jpg" alt="" class="sl" />
+          <img src="images/clean9.jpg" alt="" class="sl" />
+          <img src="images/clean10.jpg" alt="" class="sl" />
+          <img src="images/clean11.jpg" alt="" class="sl" />
+          <img src="images/clean12.jpg" alt="" class="sl" />
+          <img src="images/clean13.jpg" alt="" class="sl" />
+          <img src="images/clean14.jpg" alt="" class="sl" />
+          <img src="images/clean15.jpg" alt="" class="sl" />
+        </div>
+        <div class="buttons">
+          <button class="prevButton">
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+          <button class="nextButton">
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- section 8  -->
+
+    <div
+      style="
+        width: 100%;
+
+        background-color: rgba(163, 161, 161, 0.404);
+      "
+    >
+      <div class="contanier2" style="margin-left: 30px">
+        <h1>Look your best this season</h1>
+
+        <div style="margin-top: 5%">
+          <figcaption style="text-align: center;" >
+            <img
+            src="images\look1.jpg"
+            alt=""
+            style="width: 90%; height: 115.5px; margin-left: 4%"
+          />
+            <br>
+            For Her
+          </figcaption>
+         <br />
+         <figcaption style="text-align: center;">
+          <img
+          src="images\look2.jpg"
+          alt=""
+          style="
+            width: 85%;
+            height: 115.5px;
+            max-width: 420px;
+            margin-left: 4%;
+          "
+        />
+          <br>
+ 
+          For Him
+         </figcaption>
+          
+          <br />
+        </div>
+
+        <div style="margin-top: 15%">
+          <figcaption style="text-align: center;">
+            <img
+            src="images\look3.jpg"
+            alt=""
+            style="width: 90%; height: 115.5px; margin-left: 4%"
+          />
+            <br>
+            For Teens
+          </figcaption>
+          <figcaption style="text-align: center;">
+            <img
+            src="images\look4.jpg"
+            alt=""
+            style="width: 85%; height: 115.5px; margin-left: 4%"
+          />
+            <br>
+
+           For Kids
+          </figcaption>
+          
+        </div>
+        <a
+          class="shop"
+          href=""
+          style="
+            color: rgb(36, 121, 121);
+            text-decoration: none;
+            margin-left: 8%;
+            margin-top: 10%;
+          "
+          >Shop more fall finds</a
+        >
+      </div>
+      <div class="contanier2">
+        <h1>Level up your gaming</h1>
+        <div style="margin-top: 5%">
+
+          <figcaption style="text-align: center;" >
+            <img
+            src="images\game1.jpg"
+            alt=""
+            style="width: 90%; height: 115.5px; margin-left: 4%"
+          />
+            <br>
+            PC gaming
+          </figcaption>
+          <br />
+          <figcaption style="text-align: center;">
+            <img
+            src="images\game2.jpg"
+            alt=""
+            style="
+              width: 85%;
+              height: 115.5px;
+              max-width: 420px;
+              margin-left: 4%;
+            "
+          />     
+            <br>
+            Xbox
+          </figcaption>
+         
+          <br />
+        </div>
+
+        <div style="margin-top: 15%">
+          <figcaption style="text-align: center;">
+            <img
+            src="images\game3.jpg"
+            alt=""
+            style="width: 90%; height: 115.5px; margin-left: 4%"
+          />
+            <br>
+            PlayStation
+          </figcaption>
+         <figcaption style="text-align: center;">
+          <img
+          src="images\game4.jpg"
+          alt=""
+          style="width: 85%; height: 115.5px; margin-left: 4%"
+        />
+           <br>
+       
+         Nintendo Switch
+         </figcaption>
+          
+        </div>
+        <a
+          class="shop"
+          href=""
+          style="
+            color: rgb(36, 121, 121);
+            text-decoration: none;
+            margin-left: 8%;
+          "
+          >See more</a
+        >
+      </div>
+
+      <div class="contanier2">
+        <h1>Fantastic Finds for Home</h1>
+        <div style="margin-top: 5%">
+          <figcaption style="text-align: center;">
+            <img
+            src="images\home1.jpg"
+            alt=""
+            style="width: 90%; height: 115.5px; margin-left: 4%"
+          />
+            <br>Kitchen
+          </figcaption>
+          <br />
+
+          <figcaption style="text-align: center;">
+            <img
+            src="images\home2.jpg"
+            alt=""
+            style="
+              width: 85%;
+              height: 115.5px;
+              max-width: 420px;
+              margin-left: 4%;
+            "
+          />
+            <br>
+   
+Home Decor
+          </figcaption>
+          
+          <br />
+        </div>
+
+        <div style="margin-top: 15%">
+          <figcaption style="text-align: center;">
+            <img
+            src="images\home3.jpg"
+            alt=""
+            style="width: 90%; height: 115.5px; margin-left: 4%"
+          />
+            <br>
+            Dining
+          </figcaption>
+          <figcaption style="text-align: center;">
+            <img
+            src="images\home4.jpg"
+            alt=""
+            style="width: 85%; height: 115.5px; margin-left: 4%"
+          />
+            <br>
+ 
+Smart Home
+          </figcaption>
+          
+        </div>
+        <a
+          class="shop"
+          href=""
+          style="
+            color: rgb(36, 121, 121);
+            text-decoration: none;
+            margin-left: 8%;
+            margin-top: 10%;
+          "
+          >Shop more fall finds</a
+        >
+      </div>
+      <div class="contanier2">
+        <h1>Have more fun with family</h1>
+        <div style="margin-top: 5%">
+          <figcaption style="text-align: center;">
+            <img
+            src="images\fun1.jpg"
+            alt=""
+            style="width: 90%; height: 115.5px; margin-left: 4%"
+          />
+            <br>
+            Outdoor Play Sets
+          </figcaption >
+         <br />
+
+         <figcaption style="text-align: center;">
+          <img
+          src="images\fun2.jpg"
+          alt=""
+          style="
+            width: 85%;
+            height: 115.5px;
+            max-width: 420px;
+            margin-left: 4%;
+          "
+        />
+          <br>
+
+Learning Toys
+         </figcaption>
+          
+          <br />
+        </div>
+
+        <div style="margin-top: 15%">
+          <figcaption style="text-align: center;">
+            <img
+            src="images\fun3.jpg"
+            alt=""
+            style="width: 90%; height: 115.5px; margin-left: 4%"
+          />
+            <br>
+            Action Figures
+          </figcaption>
+          <figcaption style="text-align: center;">
+            <img
+            src="images\fun4.jpg"
+            alt=""
+            style="width: 85%; height: 115.5px; margin-left: 4%"
+          />
+            <br>
+        
+Pretend Play Toys
+          </figcaption>
+          
+        </div>
+        <a
+          class="shop"
+          href=""
+          style="
+            color: rgb(36, 121, 121);
+            text-decoration: none;
+            margin-left: 8%;
+            margin-top: 10%;
+          "
+          >Shop more fall finds</a
+        >
+      </div>
+    </div>
+    <!-- section 9 -->
+
+    <div
+      style="
+        width: 100%;
+        margin: 0;
+        background-color: rgba(204, 192, 192, 0.329);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+        border-width: 2;
+        border-color: black;
+      "
+    >
+      <div
+        class="slider-container"
+        style="
+          position: relative;
+          width: 100%;
+          height: 290px;
+          padding: 20px;
+          padding-left: 30px;
+          box-sizing: border-box;
+        "
+      >
+        <div
+          class="slider"
+          style="
+            overflow-x: auto;
+            margin-bottom: 12px;
+            height: calc(95% - 20px);
+            margin-top: 50px;
+            background-color: white;
+          "
+        >
+          <h2
+            style="
+              padding-left: 10px;
+              font-size: 20px;
+              color: rgb(12, 11, 11);
+              position: absolute;
+              top: 20px;
+              left: 20px;
+              z-index: 10;
+              font-family: Arial, Helvetica, sans-serif;
+            "
+          >
+            Best Sellers in Sports & Outdoors
+          </h2>
+          <img src="images/sport1.jpg" alt="" class="sl" />
+          <img src="images/sport2.jpg" alt="" class="sl" />
+          <img src="images/sport3.jpg" alt="" class="sl" />
+          <img src="images/sport4.jpg" alt="" class="sl" />
+          <img src="images/sport5.jpg" alt="" class="sl" />
+          <img src="images/sport6.jpg" alt="" class="sl" />
+          <img src="images/sport7.jpg" alt="" class="sl" />
+          <img src="images/sport8.jpg" alt="" class="sl" />
+          <img src="images/sport9.jpg" alt="" class="sl" />
+          <img src="images/sport10.jpg" alt="" class="sl" />
+          <img src="images/sport11.jpg" alt="" class="sl" />
+          <img src="images/sport12.jpg" alt="" class="sl" />
+          <img src="images/sport13.jpg" alt="" class="sl" />
+          <img src="images/sport14.jpg" alt="" class="sl" />
+          <img src="images/sport15.jpg" alt="" class="sl" />
+        </div>
+        <div class="buttons">
+          <button class="prevButton">
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+          <button class="nextButton">
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- section 10 -->
+
+    <div
+      style="
+        width: 100%;
+        margin: 0;
+        background-color: rgba(204, 192, 192, 0.329);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+        border-width: 2;
+        border-color: black;
+      "
+    >
+      <div
+        class="slider-container"
+        style="
+          position: relative;
+          width: 100%;
+          height: 290px;
+          padding: 20px;
+          padding-left: 30px;
+          box-sizing: border-box;
+        "
+      >
+        <div
+          class="slider"
+          style="
+            overflow-x: auto;
+            margin-bottom: 12px;
+            height: calc(95% - 20px);
+            margin-top: 50px;
+            background-color: white;
+          "
+        >
+          <h2
+            style="
+              padding-left: 10px;
+              font-size: 20px;
+              color: rgb(12, 11, 11);
+              position: absolute;
+              top: 20px;
+              left: 20px;
+              z-index: 10;
+              font-family: Arial, Helvetica, sans-serif;
+            "
+          >
+            Popular Gifts in Baby
+          </h2>
+          <img src="images/gift1.jpg" alt="" class="sl" />
+          <img src="images/gift2.jpg" alt="" class="sl" />
+          <img src="images/gift3.jpg" alt="" class="sl" />
+          <img src="images/gift4.jpg" alt="" class="sl" />
+          <img src="images/gift5.jpg" alt="" class="sl" />
+          <img src="images/gift6.jpg" alt="" class="sl" />
+          <img src="images/gift7.jpg" alt="" class="sl" />
+          <img src="images/gift8.jpg" alt="" class="sl" />
+          <img src="images/gift9.jpg" alt="" class="sl" />
+          <img src="images/gift10.jpg" alt="" class="sl" />
+          <img src="images/gift11.jpg" alt="" class="sl" />
+          <img src="images/gift12.jpg" alt="" class="sl" />
+          <img src="images/gift14.jpg" alt="" class="sl" />
+          <img src="images/gift15.jpg" alt="" class="sl" />
+        </div>
+        <div class="buttons">
+          <button class="prevButton">
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+          <button class="nextButton">
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- section 11 -->
+
+    <div
+      style="
+        width: 100%;
+
+        background-color: rgba(163, 161, 161, 0.404);
+        text-align: center;
+      "
+    >
+      <div class="contanier2" style="margin-left: 30px">
+        <h1>Player's paradise starts here</h1>
+
+        <img
+          src="images\l1.jpg"
+          alt=""
+          style="width: 90%; height: 75%; margin-left: 1%; margin-top: 4%"
+        />
+        <br />
+        <a
+          class="shop"
+          href=""
+          style="
+            color: rgb(36, 121, 121);
+            text-decoration: none;
+            margin-left: 8%;
+          "
+          >Shop now</a
+        >
+      </div>
+      <div class="contanier2" style="margin-left: 30px">
+        <h1>Laptops for every need</h1>
+
+        <img
+          src="images\l2.jpg"
+          alt=""
+          style="width: 90%; height: 75%; margin-left: 1%; margin-top: 11%"
+        />
+        <br />
+        <a
+          class="shop"
+          href=""
+          style="
+            color: rgb(36, 121, 121);
+            text-decoration: none;
+            margin-left: 8%;
+          "
+          >Shop now</a
+        >
+      </div>
+
+      <div class="contanier2" style="margin-left: 30px">
+        <h1>Upgrade your office furniture</h1>
+
+        <img
+          src="images\l3.jpg"
+          alt=""
+          style="width: 90%; height: 75%; margin-left: 1%; margin-top: 4%"
+        />
+        <br />
+        <a
+          class="shop"
+          href=""
+          style="
+            color: rgb(36, 121, 121);
+            text-decoration: none;
+            margin-left: 8%;
+          "
+          >Shop now</a
+        >
+      </div>
+      <div class="contanier2">
+        <h1>Personal Care under $25</h1>
+
+        <img
+          src="images\l4.jpg"
+          alt=""
+          style="width: 90%; height: 75%; margin-left: 1%; margin-top: 11%"
+        />
+        <br />
+        <a
+          class="shop"
+          href=""
+          style="
+            color: rgb(36, 121, 121);
+            text-decoration: none;
+            margin-left: 8%;
+          "
+          >see more
+        </a>
+      </div>
+    </div>
+
+    <!-- section 12 -->
+
+    <div
+      style="
+        width: 100%;
+        margin: 0;
+        background-color: rgba(204, 192, 192, 0.329);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+        border-width: 2;
+        border-color: black;
+      "
+    >
+      <div
+        class="slider-container"
+        style="
+          position: relative;
+          width: 100%;
+          height: 290px;
+          padding: 20px;
+          padding-left: 30px;
+          box-sizing: border-box;
+        "
+      >
+        <div
+          class="slider"
+          style="
+            overflow-x: auto;
+            margin-bottom: 12px;
+            height: calc(95% - 20px);
+            margin-top: 50px;
+            background-color: white;
+          "
+        >
+          <h2
+            style="
+              padding-left: 10px;
+              font-size: 20px;
+              color: rgb(12, 11, 11);
+              position: absolute;
+              top: 20px;
+              left: 20px;
+              z-index: 10;
+              font-family: Arial, Helvetica, sans-serif;
+            "
+          >
+            Best Sellers in Books
+          </h2>
+          <img src="images/book1.jpg" alt="" class="sl" />
+          <img src="images/book2.jpg" alt="" class="sl" />
+          <img src="images/book3.jpg" alt="" class="sl" />
+          <img src="images/book4.jpg" alt="" class="sl" />
+          <img src="images/book5.jpg" alt="" class="sl" />
+          <img src="images/book6.jpg" alt="" class="sl" />
+          <img src="images/book7.jpg" alt="" class="sl" />
+          <img src="images/book8.jpg" alt="" class="sl" />
+          <img src="images/book9.jpg" alt="" class="sl" />
+          <img src="images/book10.jpg" alt="" class="sl" />
+          <img src="images/book11.jpg" alt="" class="sl" />
+          <img src="images/book12.jpg" alt="" class="sl" />
+          <img src="images/book13.jpg" alt="" class="sl" />
+          <img src="images/book14.jpg" alt="" class="sl" />
+          <img src="images/book15.jpg" alt="" class="sl" />
+        </div>
+        <div class="buttons">
+          <button class="prevButton">
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+          <button class="nextButton">
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- links section  -->
+
+    <div style="background-color: #232f3e; display: block">
+      <a href="#d" style="text-decoration: none; transition: 0.5s">
+        <span id="back1">Back to top</span>
+      </a>
+      <br /><br />
+      <div style="padding-left: auto; margin-left: 15%">
+        <ul style="list-style: none">
+          <span class="sp" style="display: block">Get to Know Us</span>
+          <br />
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >Career</a
+            >
+          </li>
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >Blog</a
+            >
+          </li>
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >About Amazon</a
+            >
+          </li>
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >Investor Relations</a
+            >
+          </li>
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >Amazon Devices</a
+            >
+          </li>
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >Amazon Science</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div style="margin-left: 5%">
+        <ul style="list-style: none">
+          <span class="sp" style="display: block"> Make Money with Us</span>
+          <br />
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >Sell products on Amazon</a
+            >
+          </li>
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >Sell on Amazon Business</a
+            >
+          </li>
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >Sell apps on Amazon</a
+            >
+          </li>
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >Become an Affiliate</a
+            >
+          </li>
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >Advertise Your Products</a
+            >
+          </li>
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >Self-Publish with Us</a
+            >
+          </li>
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >Host an Amazon Hub</a
+            >
+          </li>
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >›See More Make Money with Us</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div style="margin-left: 5%">
+        <ul style="list-style: none">
+          <span class="sp" style="display: block">Amazon Payment Products</span>
+          <br />
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >Amazon Business Card</a
+            >
+          </li>
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >Shop with Points</a
+            >
+          </li>
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >Reload Your Balance</a
+            >
+          </li>
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >Amazon Currency Converter</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div style="margin-left: 5%">
+        <ul style="list-style: none">
+          <span class="sp" style="display: block">Let Us Help You</span>
+          <br />
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >Amazon and COVID-19</a
+            >
+          </li>
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >Your Account</a
+            >
+          </li>
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >Your Orders</a
+            >
+          </li>
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >Shipping Rates & Policies</a
+            >
+          </li>
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >Returns & Replacements</a
+            >
+          </li>
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >Manage Your Content and Devices</a
+            >
+          </li>
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 15px; opacity: 0.8"
+              >help</a
+            >
+          </li>
+        </ul>
+      </div>
+      <br /><br /><br />
+      <br />
+      <br />
+      <br />
+      <hr />
+
+      <div style="margin-left: 25%">
+        <a href="#">
+          <div>
+            <span
+              style="
+                background-image: url(images/logo.png);
+                width: 300px;
+                height: 150px;
+              "
+            >
+            </span>
+          </div>
+        </a>
+
+        <a href="#">
+          <button
+            style="
+              width: 120px;
+              height: 35px;
+              background-color: #232f3e;
+              color: white;
+              border-width: 1px;
+              border-color: white;
+              margin-top: 50%;
+            "
+          >
+            <i
+              class="fa-solid fa-globe"
+              style="color: white; margin-right: 5%; margin-bottom: 5%"
+            ></i>
+            English
+
+            <i
+              class="fa-solid fa-caret-up"
+              style="color: white; margin-left: 8%; font-size: x-small"
+            >
+              <br />
+              <i
+                class="fa-solid fa-caret-down"
+                style="color: white; margin-left: 8%; margin-top: 3%"
+              ></i>
+            </i>
+          </button>
+        </a>
+
+        <a href="#">
+          <button
+            style="
+              width: 120px;
+              height: 35px;
+              background-color: #232f3e;
+              color: white;
+              border-width: 1px;
+              border-color: white;
+              margin-top: 50%;
+              margin-left: 10%;
+            "
+          >
+            $ USD-U.S.Dollar
+          </button>
+        </a>
+
+        <a href="#">
+          <button
+            style="
+              width: 120px;
+              height: 35px;
+              background-color: #232f3e;
+              color: white;
+              border-width: 1px;
+              border-color: white;
+              margin-top: 50%;
+              margin-left: 20%;
+            "
+          >
+            <i
+              class="fa-solid fa-globe"
+              style="color: white; margin-right: 5%; margin-bottom: 5%"
+            ></i>
+            United states
+          </button>
+        </a>
+      </div>
+    </div>
+
+    <!-- section 13 -->
+
+    <div style="background-color: #070808; display: block">
+      <div style="margin-left: 5%">
+        <ul style="list-style: none">
+          <br />
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong style="font-weight: bolder; display: block"
+                >Amazon Music</strong
+              >
+              <pre>
+ Stream millions
+ of songs</pre
+              >
+            </a>
+          </li>
+          <br />
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+              ><strong style="font-weight: bolder; display: block"
+                >Amazon global</strong
+              >
+              <pre>
+Ship Orders
+Internationally</pre
+              >
+            </a>
+          </li>
+          <br />
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong style="font-weight: bolder; display: block"
+                >IMDbPro</strong
+              >
+              <pre>
+Get Info Entertainment
+Professionals Need</pre
+              >
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div style="margin-left: 2%">
+        <ul style="list-style: none">
+          <br />
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong style="font-weight: bolder; display: block">
+                Amazon Ads</strong
+              >
+              <pre>
+Reach customers
+wherever they
+spend their time</pre
+              >
+            </a>
+          </li>
+          <br />
+
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong style="font-weight: bolder; display: block">
+                Home Services</strong
+              >
+              <pre>
+Experienced Pros
+Happiness Guarantee</pre
+              >
+            </a>
+          </li>
+          <br />
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong style="font-weight: bolder; display: block">
+                Kindle Direct Publishing</strong
+              >
+              <pre>
+Indie Digital & Print 
+Publishing Made Easy</pre
+              >
+            </a>
+          </li>
+          <br />
+
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong
+                style="
+                  font-weight: bolder;
+                  display: block;
+                  color: rgb(255, 255, 255);
+                "
+              >
+                eero WiFi</strong
+              >
+              <pre>
+Stream 4K Video
+in Every Room</pre
+              >
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div style="margin-left: 2%">
+        <ul style="list-style: none">
+          <br />
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong style="font-weight: bolder; display: block"> 6pm</strong>
+              <pre>
+Score deals
+on fashion brands</pre
+              >
+            </a>
+          </li>
+          <br />
+
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong style="font-weight: bolder; display: block">
+                Amazon Web Services</strong
+              >
+              <pre>
+Scalable Cloud
+Computing Services</pre
+              >
+            </a>
+          </li>
+          <br />
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong style="font-weight: bolder; display: block">
+                Prime Video Direct</strong
+              >
+              <pre>
+Video Distribution
+Made Easy</pre
+              >
+            </a>
+          </li>
+          <br />
+
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong
+                style="
+                  font-weight: bolder;
+                  display: block;
+                  color: rgb(255, 255, 255);
+                "
+              >
+                Blink</strong
+              >
+              <pre>
+Smart Security
+ for Every Home</pre
+              >
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div style="margin-left: 3%">
+        <ul style="list-style: none">
+          <br />
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong style="font-weight: bolder; display: block">
+                AbeBooks</strong
+              >
+              <pre>
+Books, art
+ & collectibles</pre
+              >
+            </a>
+          </li>
+          <br />
+
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong style="font-weight: bolder; display: block">
+                Audible</strong
+              >
+              <pre>
+Listen to Books & Original
+Audio Performances</pre
+              >
+            </a>
+          </li>
+          <br />
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong style="font-weight: bolder; display: block">
+                Shopbop</strong
+              >
+              <pre>
+ Designer
+Fashion Brands</pre
+              >
+            </a>
+          </li>
+          <br />
+
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong
+                style="
+                  font-weight: bolder;
+                  display: block;
+                  color: rgb(255, 255, 255);
+                "
+              >
+                Neighbors App</strong
+              >
+              <pre>
+Real-Time Crime
+& Safety Alerts</pre
+              >
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div style="margin-left: 5%">
+        <ul style="list-style: none">
+          <br />
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong style="font-weight: bolder; display: block"> ACX</strong>
+              <pre>
+Audiobook Publishing
+Made Easy</pre
+              >
+            </a>
+          </li>
+          <br />
+
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong style="font-weight: bolder; display: block">
+                Box Office Mojo</strong
+              >
+              <pre>
+Find Movie
+Box Office Data</pre
+              >
+            </a>
+          </li>
+          <br />
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong style="font-weight: bolder; display: block">
+                Woot!</strong
+              >
+              <pre>
+Deals and
+Shenanigans</pre
+              >
+            </a>
+          </li>
+          <br />
+
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong
+                style="
+                  font-weight: bolder;
+                  display: block;
+                  color: rgb(255, 255, 255);
+                "
+              >
+                Amazon Subscription Boxes</strong
+              >
+              <pre>
+
+Top subscription boxes
+–right to your door</pre
+              >
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div style="margin-left: 5%">
+        <ul style="list-style: none">
+          <br />
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong style="font-weight: bolder; display: block">
+                Sell on Amazon</strong
+              >
+              <pre>
+Start a Selling
+ Account</pre
+              >
+            </a>
+          </li>
+          <br />
+
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong style="font-weight: bolder; display: block">
+                Goodreads</strong
+              >
+              <pre>
+Book reviews
+&
+recommendations</pre
+              >
+            </a>
+          </li>
+          <br />
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong style="font-weight: bolder; display: block">
+                Zappos</strong
+              >
+              <pre>
+Shoes &
+Clothingy</pre
+              >
+            </a>
+          </li>
+          <br />
+
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong
+                style="
+                  font-weight: bolder;
+                  display: block;
+                  color: rgb(255, 255, 255);
+                "
+              >
+                PillPack</strong
+              >
+              <pre>
+Pharmacy
+Simplified</pre
+              >
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div style="margin-left: 5%">
+        <ul style="list-style: none">
+          <br />
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong style="font-weight: bolder; display: block">
+                Amazon Business</strong
+              >
+              <pre>
+Everything For
+Your Business</pre
+              >
+            </a>
+          </li>
+          <br />
+
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong style="font-weight: bolder; display: block"> IMDb</strong>
+              <pre>
+Movies, TV
+& Celebrities</pre
+              >
+            </a>
+          </li>
+          <br />
+          <li class="back2">
+            <a
+              href="#"
+              class="sp"
+              style="font-weight: unset; font-size: 12px; opacity: 0.8"
+            >
+              <strong style="font-weight: bolder; display: block"> Ring</strong>
+              <pre>
+Smart Home
+Security Systems</pre
+              >
+            </a>
+          </li>
+          <br />
+        </ul>
+      </div>
+    </div>
+  </body>
+  <script src="amazon.js"></script>
+</html>
